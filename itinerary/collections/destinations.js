@@ -1,0 +1,1 @@
+Destinations = new Meteor.Collection("destinations");
