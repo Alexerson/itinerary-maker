@@ -3,11 +3,7 @@ Router.configure({
 });
 
 Router.map(function () {
-  /**
-   * The route's name is "home"
-   * The route's template is also "home"
-   * The default action will render the home template
-   */
+
   this.route('home', {
     path: '/',
     template: 'home'
@@ -17,8 +13,8 @@ Router.map(function () {
   //   path: '/cities'
   // });
 
-  this.route('cities', {
-    path: '/cities/:_name',
+  this.route('city', {
+    path: '/cities/:name',
     data: function() {
       return this.params.name;
     },
@@ -33,5 +29,10 @@ Router.map(function () {
   this.route('destination_entry', {
     path: '/destination_entry',
     template: 'destination_entry'
+  });
+
+  this.route('planner', {
+    path: '/planner',
+    template: 'planner'
   });
 });

@@ -1,3 +1,8 @@
+Handlebars.registerHelper("log", function(context) {
+  return console.log(context);
+});
+
+
 Template.admin.events({
     "click button": function() {
         Meteor.call("updateDestinationsData");
