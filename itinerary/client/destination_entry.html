@@ -1,5 +1,42 @@
 <template name="destination_entry">
-  <br>
-  <br>
-  <h1>HI, Jin</h1>
+	<br>
+	<br>
+	<body>
+		<div class="container">
+			<h1>TEST</h1>
+			<form name="input" action="" method="post" align="center">
+				<label for="Name"  >Name   :</label>
+				<input id = "Name" type="text" name="Name"/>
+				<br/>
+				<label for"Contact">Contact:</label>
+				<input id = "Contact" type="text" name="Contact"/>
+				<br/>
+				<label for="Address">Address:</label>
+				<input id = "Address" type="text" name="Address">
+				<br/>
+				<label for="City">City   :</label>
+				<input id = "City" type="text" name="City">
+				<br/>
+				<label>Section: </label>
+				<select id="Section">
+					<option value="sights">sights</option>
+					<option value="shops">shops</option>
+					<option value="arts" selected>arts</option>
+					<option value="food">food</option>
+					<option value="drinks">drinks</option>
+					<option value="coffee">coffee</option>
+					<option value="outdoor" selected>outdoor</option>
+					<option value="trending">trending</option>
+					<option value="specials">specials</option>
+				</select>
+				<br/><br/>
+				<label>Description</label><br/>
+				<textarea id= "Description" name="Description" rows="4" cols="50">
+			    </textarea>
+			    <br/>
+				<br/>
+				<br/>
+				<input type="submit" value="Submit">
+			</form>
+
 </template>
