@@ -8,5 +8,5 @@ Template.destinations.events({
         } else {
           Itineraries.update(currentItineraryID, { $pull: { destinations: this }});
         }
-    }
+    },
 });

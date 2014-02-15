@@ -1,6 +1,6 @@
 Template.maps.rendered = function() {
 	var directionsDisplay = new google.maps.DirectionsRenderer();
-	
+
 	var directionsService = new google.maps.DirectionsService();
 	var map;
 	var start = new google.maps.LatLng(24.488373734076642, 54.353069830513995);
@@ -29,14 +29,29 @@ Template.maps.rendered = function() {
 			}],
 			travelMode : google.maps.TravelMode.DRIVING
 		};
+		function computeTravelTime(result) {
+			var total = 0;
+			var mins = 0;
+			var hours = 0;
+			var myroute = result.routes[0];
+			for (var i = 0; i < myroute.legs.length; i++) {
+				total += myroute.legs[i].duration.value;
+			}
+			hours = Math.floor(total / 3600.0);
+			mins = Math.round(total / 60.0 - hours * 60);
+			console.log(hours + " hours " + mins + " mins");
+		}
+
+
 		directionsService.route(request, function(response, status) {
 			if (status == google.maps.DirectionsStatus.OK) {
 				directionsDisplay.setDirections(response);
+				computeTravelTime(response);
 			}
 		});
 	};
 	calcRoute();
 
 	google.maps.event.addDomListener(window, 'load', initialize);
-}; 
+};
 
