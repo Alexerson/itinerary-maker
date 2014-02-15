@@ -38,5 +38,12 @@ Meteor.methods({
     _.each(["Abu Dhabi, UAE", "Dubai, UAE"], function(city) {
       saveFourSquareVenuesData(0, city);
     });
+
+    var venues_str = "";
+    var venues_json = JSON.parse(venues_str);
+    _.each(venues_json, function(venue) {
+      Destinations.insert(venue);
+    });
   },
 });
+
