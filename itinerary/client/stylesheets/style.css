@@ -1,44 +1,55 @@
 #ex1Slider .slider-selection {
 	background: #BABABA;
 }
-.font-red{
+.font-red {
 	color: #AC4242 !important;
 }
 .flat {
 	border-radius: 0px;
 }
-.cont-slider{
+.cont-slider {
 	margin-top: 50px;
 }
 
 /* Slider */
-.ui-menu .ui-menu-item a,.ui-menu .ui-menu-item a.ui-state-hover, .ui-menu .ui-menu-item a.ui-state-active {
+.ui-menu .ui-menu-item a, .ui-menu .ui-menu-item a.ui-state-hover, .ui-menu .ui-menu-item a.ui-state-active {
 	font-weight: normal;
 	margin: -1px;
-	text-align:left;
-	font-size:14px;
-	}
+	text-align: left;
+	font-size: 14px;
+}
 
-.ui-autocomplete-loading { background: white url("/images/ui-anim_basic_16x16.gif") right center no-repeat; }
+.ui-autocomplete-loading {
+	background: white url("/images/ui-anim_basic_16x16.gif") right center no-repeat;
+}
 
-.thin{
+/* Destintations */
+.thin {
 	padding: 3px;
 }
-.destination{
+.destination {
 	margin-top: 5px;
 }
-.destination-item p{
+.destination-item p {
 	font-size: 12px;
 	padding: 0;
 	margin: 0;
 }
-.sort-by{
+.sort-by {
 	margin-top: 10px;
 }
-.generate-btn{
+.generate-btn {
 	margin-top: 10px;
 	margin-bottom: 5px;
 }
-.user-destination{
+.user-destination {
 	margin-bottom: 10px;
 }
+
+/* Map */
+#map-canvas {
+	width: 100%;
+	height: 400px;
+}
+
+
