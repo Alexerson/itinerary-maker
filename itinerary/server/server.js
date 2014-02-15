@@ -44,7 +44,9 @@ Meteor.methods({
     console.log(venues_str);
     var venues_json = JSON.parse(venues_str);
     _.each(venues_json, function(venue) {
-      Destinations.insert(venue);
+      if (venue.section === "outdoors" || venue.section === "sights" || venue.checkincount > 1000) {
+        Destinations.insert(venue);
+      }
     });
 
     console.log('done');
