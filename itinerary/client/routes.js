@@ -35,4 +35,10 @@ Router.map(function () {
     path: '/planner',
     template: 'planner'
   });
+
+  this.route('plan', {
+    path: '/plan',
+    template: 'plan'
+  });
+
 });
