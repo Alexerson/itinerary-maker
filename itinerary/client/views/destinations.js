@@ -11,8 +11,6 @@ Template.destinations.events({
 				}
 			});
 
-			// Add current location into the map
-			//function initialize() {
 			var myLatlng = new google.maps.LatLng(this.lat, this.lng);
 			var mapOptions = {
 				zoom : 15,
@@ -26,8 +24,6 @@ Template.destinations.events({
 				title : 'Hello World!'
 			});
 
-			//google.maps.event.addDomListener(window, 'load', initialize);
-
 		} else {
 			Itineraries.update(currentItineraryID, {
 				$pull : {
@@ -40,8 +36,6 @@ Template.destinations.events({
 	'click #btn-generate' : function(event, template) {
 		var data = Itineraries.find(Session.get("currentItineraryID")).fetch();
 
-		//console.log(data);
-		//console.log(data[0].destinations[0].location.lat);
 		if (data[0].destinations.length >= 2) {
 			var directionsDisplay = new google.maps.DirectionsRenderer();
 			var directionsService = new google.maps.DirectionsService();
