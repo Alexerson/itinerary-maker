@@ -1,0 +1,19 @@
+<template name="city">
+  <br>
+  <br>
+  <br>
+  <br>
+{{#each this}}
+    {{ this.name }}, 
+    {{ this.categories.0.pluralName }}, 
+    {{ this.contact.formattedPhone }}, 
+    {{ this.location.lat}} + {{this.location.lng }}, 
+    {{ this.photos.groups.0.items.0.prefix }}75x75{{ this.photos.groups.0.items.0.suffix }}
+    <br>
+    <br>
+
+    {{ log this }}
+    <br>
+{{/each}}
+
+</template>

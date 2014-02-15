@@ -16,7 +16,7 @@ Router.map(function () {
   this.route('city', {
     path: '/cities/:name',
     data: function() {
-      return this.params.name;
+      return Destinations.find({city: this.params.name});
     },
     template: 'city'
   });

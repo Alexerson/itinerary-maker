@@ -6,6 +6,7 @@ var saveFourSquareVenuesData = function(offset, city) {
       radius: 10000,
       openNow: 0,
       limit: 50,
+      venuePhotos: 1,
       offset: offset,
       client_id: "51XBG4ZZKGBB0AMTUABMF4X33GHZZUGSOP4Z3JTHADXC5GBO",
       client_secret: "PQHIJKTN5CDGYYNAT5DN5YY4F2O5OHWZTCRLMXGGSTFX2DPE",
@@ -35,15 +36,18 @@ var saveFourSquareVenuesData = function(offset, city) {
 Meteor.methods({
   updateDestinationsData: function () {
     Destinations.remove({});
-    _.each(["Abu Dhabi, UAE", "Dubai, UAE"], function(city) {
+    _.each(["Abu Dhabi", "Dubai"], function(city) {
       saveFourSquareVenuesData(0, city);
     });
 
-    var venues_str = "";
+    var venues_str = Assets.getText("result_all.json");
+    console.log(venues_str);
     var venues_json = JSON.parse(venues_str);
     _.each(venues_json, function(venue) {
       Destinations.insert(venue);
     });
+
+    console.log('done');
   },
 });
 
