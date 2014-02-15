@@ -1,24 +1,39 @@
 var suggestionsData = [
+
 	{
-		imgUrl: '/img/intro-bg.jpg',
-		title: 'Suggestion Title1',
-		description: 'So delightful up dissimilar by unreserved it connection frequently. Do an high room so in paid. Up on cousin ye dinner should in. Sex stood tried walls manor truth shy and three his. Their to years so child truth.'
-	}, 
-	{
-		imgUrl: '/img/intro-bg.jpg',
+		imgUrl: '/img/jones-the-grocer.jpg',
 		title: 'Suggestion Title2',
-		description: 'So delightful up dissimilar by unreserved it connection frequently. Do an high room so in paid. Up on cousin ye dinner should in. Sex stood tried walls manor truth shy and three his. Their to years so child truth.'
+		description: 'With products sourced and selected from around the globe, jones the grocer is a food emporium focused on providing natural ingredients produced by specialist, artisan suppliers and showcases these through the innovative in store cafe menu which you can enjoy in the casual atmosphere of our contemporary designed cafes..',
+		location: 'Al Mamoura, Al Mamoura Building B, Ground Floor 06/07, Corner 4th Muroor and 15th Street, Abu Dhabi, UAE',
+		phone: '+971 2 4438 762',
+		exploreUrl:'http://www.qasralhosnfestival.ae/',
 	}, 
 	{
-		imgUrl: '/img/intro-bg.jpg',
-		title: 'Suggestion Title3',
-		description: 'So delightful up dissimilar by unreserved it connection frequently. Do an high room so in paid. Up on cousin ye dinner should in. Sex stood tried walls manor truth shy and three his. Their to years so child truth.'
+		imgUrl: '/img/maroush.jpg',
+		title: 'Marouche',
+		description: 'Restaurant with traditional Dishes.',
+		location: 'Po Box .26269- Salam Street, City Abu Dhabi',
+		phone: '+971-2-6441419',
+		exploreUrl:'http://www.yadig.com/business/abu-dhabi/maroush-restaurant/2418/',
 	},
 	{
-		imgUrl: '/img/intro-bg.jpg',
-		title: 'Suggestion Title4',
-		description: 'So delightful up dissimilar by unreserved it connection frequently. Do an high room so in paid. Up on cousin ye dinner should in. Sex stood tried walls manor truth shy and three his. Their to years so child truth.'
+		imgUrl: '/img/cleaning-up-the-mangroves.jpg',
+		title: 'Clean up the Mangroves',
+		description: 'Go kayaking in the morning and clean up the Mangroves in the afternoon',
+		location: 'The Mangroves',
+		phone: '',
+		exploreUrl:'"http://www.tripadvisor.fr/Attraction_Review-g294013-d671133-Reviews-Heritage_Village-Abu_Dhabi_Emirate_of_Abu_Dhabi.html',
+	},
+	
+	{
+		imgUrl: '/img/heritage-village.jpg',
+		title: 'Heritage Village',
+		description: 'Run by the Emirates Heritage Club, this reconstruction of a traditional oasis village provides an interesting glimpse into the emirates past.Traditional aspects of the desert way of life, including a campfire with coffee pots, a goats’ hair tent, and a falaj irrigation system, are attractively displayed in the open museum.',
+		location: 'Al Mamoura, Al Mamoura Building B, Ground Floor 06/07, Corner 4th Muroor and 15th Street, Abu Dhabi, UAE',
+		phone: '+971 2 681 4455',
+		exploreUrl:'"http://www.tripadvisor.fr/Attraction_Review-g294013-d671133-Reviews-Heritage_Village-Abu_Dhabi_Emirate_of_Abu_Dhabi.html',
 	}
+	
 ];
 
 Template.suggestionsList.helpers({
