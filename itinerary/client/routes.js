@@ -32,7 +32,7 @@ Router.map(function () {
   });
 
   this.route('planner', {
-    path: '/planner',
+    path: '/planner/:name',
     data: function() {
       return Destinations.find({destinations: this.params.name});
     },
