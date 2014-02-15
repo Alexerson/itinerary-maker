@@ -1,4 +1,5 @@
 Template.maps.rendered = function() {
+	/*
 	var directionsDisplay = new google.maps.DirectionsRenderer();
 	var directionsService = new google.maps.DirectionsService();
 	var map;
@@ -37,7 +38,24 @@ Template.maps.rendered = function() {
 		});
 	};
 	calcRoute();
+	*/
+	
+	// Add current location into the map
+	//function initialize() {
+	var myLatlng = new google.maps.LatLng(24.4844101, 54.3545436);
+	var mapOptions = {
+		zoom : 15,
+		center : myLatlng
+	};
+	var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-	google.maps.event.addDomListener(window, 'load', initialize);
+	var marker = new google.maps.Marker({
+		position : myLatlng,
+		map : map,
+		title : 'NYU Abu Dhabi'
+	});
+
+
+	//google.maps.event.addDomListener(window, 'load', initialize);
 };
 
