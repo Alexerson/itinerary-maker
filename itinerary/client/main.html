@@ -1,12 +1,10 @@
-<template name="layout">
-  <!-- Navigation bar -->
-	{{> menu}}
-	
+<template name="layout">	
 	<!-- Page contents -->
 	{{yield}}
-	
 </template>
 
 <body>
+    <!-- Navigation bar -->
+    {{> menu}}
     {{> layout}}
-</body>
+</body> 
