@@ -1,6 +1,5 @@
 Template.maps.rendered = function() {
 	var directionsDisplay = new google.maps.DirectionsRenderer();
-	
 	var directionsService = new google.maps.DirectionsService();
 	var map;
 	var start = new google.maps.LatLng(24.488373734076642, 54.353069830513995);
@@ -15,7 +14,9 @@ Template.maps.rendered = function() {
 		};
 		map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 		directionsDisplay.setMap(map);
+
 	};
+	
 	function calcRoute() {
 		var request = {
 			origin : start,
@@ -38,5 +39,5 @@ Template.maps.rendered = function() {
 	calcRoute();
 
 	google.maps.event.addDomListener(window, 'load', initialize);
-}; 
+};
 

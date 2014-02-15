@@ -24,7 +24,7 @@ Template.destinations.helpers({
   },
   destinationInItinerary: function(destination) {
     var itinerary = Itineraries.findOne(Session.get("currentItineraryID"));
-    foursquare_ids = _.map(itinerary.destinations, function(item) {return item.foursquare_id});
+    foursquare_ids = _.map(itinerary.destinations, function(item) {return item.foursquare_id; });
     if (foursquare_ids.indexOf(destination.foursquare_id) >= 0) {
       return true;
     } else {
