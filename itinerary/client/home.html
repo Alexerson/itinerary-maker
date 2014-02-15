@@ -1,3 +1,33 @@
 <template name="home">
-    <h1>HOME</h1>
+	<!-- Search section -->
+	<div class="intro-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="intro-message col-lg-8 col-lg-offset-2" >
+						<div class="col-lg-10 col-lg-offset-1">
+							<div class="input-group input-group-lg">
+								<input type="text" class="form-control" placeholder="City Destination   e.g Abu Dhabi">
+								<span class="input-group-btn">
+									<button class="btn btn-success btn-large" type="button">
+										Explore
+									</button> </span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Suggestions section -->
+	<div class="content-section-a">
+		<div class="container">
+			<div class="row">
+				{{> suggestionsList}}
+			</div>
+		</div>
+	</div>
+	
+	<!-- Footer -->
+	{{> footer}}
 </template>
