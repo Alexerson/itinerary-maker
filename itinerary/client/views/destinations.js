@@ -109,3 +109,22 @@ Template.destinations.events({
 	}
 });
 
+
+
+Template.destinations.helpers({
+  destinations: function () {
+    return Destinations.find({city: Session.get("currentCity")});
+  },
+  itinerary: function() {
+    return Itineraries.findOne(Session.get("currentItineraryID"));
+  },
+  destinationInItinerary: function(destination) {
+    var itinerary = Itineraries.findOne(Session.get("currentItineraryID"));
+    foursquare_ids = _.map(itinerary.destinations, function(item) {return item.foursquare_id; });
+    if (foursquare_ids.indexOf(destination.foursquare_id) >= 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+});

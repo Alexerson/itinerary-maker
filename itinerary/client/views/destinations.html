@@ -6,7 +6,8 @@
 	  <button type="button" class="btn btn-default btn-xs">Sort by XX</button>
 	  <button type="button" class="btn btn-default btn-xs">Sort by XX</button>
 	</div>
-{{#each this.destinations}}
+{{#each destinations}}
+	{{#isolate}}
 	<div class="panel panel-default destination">
 		<div class="panel-body thin">
 			<div class="col-xs-5 col-sm-5 col-md-5 col-lg-4">
@@ -25,11 +26,17 @@
 				<p>{{ this.contact.address }}</p>
 				<p>{{ this.contact.phone }}</p>
 			</div>
-			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 clear">
-				<input type="checkbox">
+
+			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+				{{#if destinationInItinerary this }}
+					<input type="checkbox" checked>
+				{{else}}
+					<input type="checkbox">
+				{{/if}}
 			</div>
 		</div>
 	</div>
+	{{/isolate}}
 {{/each}}
 
 </template>
