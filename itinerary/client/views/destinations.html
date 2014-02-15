@@ -10,12 +10,17 @@
 	<div class="panel panel-default destination">
 		<div class="panel-body thin">
 			<div class="col-xs-5 col-sm-5 col-md-5 col-lg-4">
-				<img class="img-responsive" src="{{ this.photos.groups.0.items.0.prefix }}150x100{{ this.photos.groups.0.items.0.suffix }}" alt="...">
+				{{#if this.photo}}
+				<img class="img-responsive" src="{{ this.photo }}" alt="...">
+				{{else }}
+				<img class="img-responsive" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNuB6NGtWBN7Dx2Z6rI7fn2h7aiTPvBfIDGjy6OrvGSkv0TXJp" style="height: 75px; width=75px;">
+				{{/if }}
 			</div>
 			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-7 destination-item">
 				<span>{{this.name}}</span>
-				<p>{{ this.categories.0.pluralName }}</p>
-				<p>{{ this.contact.formattedPhone }}</p>
+				<p>{{ this.section }}</p>
+				<p>{{ this.contact.address }}</p>
+				<p>{{ this.contact.phone }}</p>
 			</div>
 			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
 				<input type="checkbox">
