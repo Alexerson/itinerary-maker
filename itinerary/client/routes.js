@@ -37,7 +37,10 @@ Router.map(function () {
   });
 
   this.route('plan', {
-    path: '/plan',
+    path: '/plan/:name',
+    data: function() {
+      return Destinations.find({city: this.params.name});
+    },
     template: 'plan'
   });
 
