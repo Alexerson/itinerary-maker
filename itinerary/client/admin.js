@@ -11,7 +11,7 @@ Template.admin.events({
 });
 
 // Adding a global project's name
-Session.set('projectName', 'ItineraryMaker');
+Session.set('projectName', 'Localli');
 
 Template.menu.projectName = function(){
 	return Session.get('projectName');
