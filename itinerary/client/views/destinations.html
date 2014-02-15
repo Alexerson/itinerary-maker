@@ -1,12 +1,13 @@
 <template name="destinations">
 
 	<button type="button" id="btn-generate" class="btn btn-info btn-lg generate-btn">Generate Route</button>
-	<div class="btn-group sort-by">
-	  <button type="button" class="btn btn-default btn-xs">Sort by XX</button>
-	  <button type="button" class="btn btn-default btn-xs">Sort by XX</button>
-	  <button type="button" class="btn btn-default btn-xs">Sort by XX</button>
+
+	<div>
+		<input type="text" class="form-control" placeholder="Search Destination e.g. Dubai Fountain">
 	</div>
-{{#each destinations}}
+
+{{#isolate}}
+{{#each filteredDestinations}}
 	{{#isolate}}
 	<div class="panel panel-default destination">
 		<div class="panel-body thin">
@@ -38,5 +39,6 @@
 	</div>
 	{{/isolate}}
 {{/each}}
+{{/isolate}}
 
 </template>

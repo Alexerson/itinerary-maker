@@ -9,18 +9,6 @@ Router.map(function () {
     template: 'home'
   });
 
-  // this.route('cities', {
-  //   path: '/cities'
-  // });
-
-  this.route('city', {
-    path: '/cities/:name',
-    data: function() {
-      return Destinations.find({city: this.params.name});
-    },
-    template: 'city'
-  });
-
   this.route('admin', {
     path: '/admin',
     template: 'admin'

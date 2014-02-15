@@ -1,4 +1,8 @@
 Template.destinations.events({
+  "keyup input": function (event) {
+      var text = event.target.value;
+      Session.set("searchText", text);
+    },
 
 	"change input[type=checkbox]" : function(event, template) {
 		var checked = event.target.checked;
@@ -54,9 +58,7 @@ Template.destinations.events({
 				});
 			}
 
-			//console.log(points);
-
-			function initialize() {
+			var initialize = function() {
 				var mapOptions = {
 					zoom : 15,
 					center : start,
@@ -65,7 +67,7 @@ Template.destinations.events({
 				directionsDisplay.setMap(map);
 
 			};
-			function calcRoute() {
+			var calcRoute = function() {
 				var request = {
 					origin : start,
 					destination : end,
@@ -103,8 +105,6 @@ Template.destinations.events({
 	}
 });
 
-
-
 Template.destinations.helpers({
   destinations: function () {
     return Destinations.find({city: Session.get("currentCity")});
@@ -114,11 +114,20 @@ Template.destinations.helpers({
   },
   destinationInItinerary: function(destination) {
     var itinerary = Itineraries.findOne(Session.get("currentItineraryID"));
-    foursquare_ids = _.map(itinerary.destinations, function(item) {return item.foursquare_id; });
-    if (foursquare_ids.indexOf(destination.foursquare_id) >= 0) {
+    unique_ids = _.map(itinerary.destinations, function(item) {return item._id; });
+    if (unique_ids.indexOf(destination._id) >= 0) {
       return true;
     } else {
       return false;
     }
-  }
+  },
+  filteredDestinations: function () {
+      var searchText = Session.get("searchText");
+      if (!searchText || searchText.length < 3) {
+        return Destinations.find();
+      }
+      var regex = new RegExp(searchText, "i");
+      console.log(regex);
+      return Destinations.find({name: regex});
+    },
 });
