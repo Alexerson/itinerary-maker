@@ -77,9 +77,24 @@ Template.destinations.events({
 					waypoints : points,
 					travelMode : google.maps.TravelMode.DRIVING
 				};
+				function computeTravelTime(result) {
+					var total = 0;
+					var mins = 0;
+					var hours = 0;
+					var myroute = result.routes[0];
+					for (var i = 0; i < myroute.legs.length; i++) {
+						total += myroute.legs[i].duration.value;
+					}
+					hours = Math.floor(total / 3600.0);
+					mins = Math.round(total / 60.0 - hours * 60);
+					console.log(hours + " hours " + mins + " mins");
+				}
+
+
 				directionsService.route(request, function(response, status) {
 					if (status == google.maps.DirectionsStatus.OK) {
 						directionsDisplay.setDirections(response);
+						computeTravelTime(response);
 					}
 				});
 			};
@@ -87,7 +102,7 @@ Template.destinations.events({
 			calcRoute();
 
 			google.maps.event.addDomListener(window, 'load', initialize);
-		}else{
+		} else {
 			alert("Please select at least two destinations!");
 		}
 	}
