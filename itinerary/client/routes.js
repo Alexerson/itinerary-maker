@@ -34,17 +34,9 @@ Router.map(function () {
   this.route('planner', {
     path: '/planner/:name',
     data: function() {
-      return Destinations.find({destinations: this.params.name});
-    },
-    template: 'planner'
-  });
-
-  this.route('plan', {
-    path: '/plan/:name',
-    data: function() {
       return Destinations.find({city: this.params.name});
     },
-    template: 'plan'
+    template: 'planner'
   });
 
 });
