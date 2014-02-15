@@ -1,0 +1,33 @@
+<template name="destinations">
+	<div class="btn-group sort-by">
+	  <button type="button" class="btn btn-default btn-xs">Sort by XX</button>
+	  <button type="button" class="btn btn-default btn-xs">Sort by XX</button>
+	  <button type="button" class="btn btn-default btn-xs">Sort by XX</button>
+	</div>
+{{#each this}}
+	<div class="panel panel-default destination">
+		<div class="panel-body thin">
+			<div class="col-xs-5 col-sm-5 col-md-5 col-lg-4">
+				<img class="img-responsive" src="{{ this.photos.groups.0.items.0.prefix }}150x100{{ this.photos.groups.0.items.0.suffix }}" alt="...">
+			</div>
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-7 destination-item">
+				<span>{{this.name}}</span>
+				<p>{{ this.categories.0.pluralName }}</p>
+				<p>{{ this.contact.formattedPhone }}</p>
+			</div>
+			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+				<input type="checkbox">
+			</div>
+		</div>
+	</div>
+{{/each}}
+	<ul class="pagination">
+  <li><a href="#">&laquo;</a></li>
+  <li><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+  <li><a href="#">&raquo;</a></li>
+</ul>
+</template>
