@@ -1,12 +1,14 @@
 <template name="destinations">
 
-	<button type="button" class="btn btn-info btn-lg generate-btn">Generate Route</button>
-	<div class="btn-group sort-by">
-	  <button type="button" class="btn btn-default btn-xs">Sort by XX</button>
-	  <button type="button" class="btn btn-default btn-xs">Sort by XX</button>
-	  <button type="button" class="btn btn-default btn-xs">Sort by XX</button>
+	<button type="button" id="btn-generate" class="btn btn-info btn-lg generate-btn">Generate Route</button>
+
+	<div>
+		<input type="text" class="form-control" placeholder="Search Destination e.g. Dubai Fountain">
 	</div>
-{{#each this.destinations}}
+
+{{#isolate}}
+{{#each filteredDestinations}}
+	{{#isolate}}
 	<div class="panel panel-default destination">
 		<div class="panel-body thin">
 			<div class="col-xs-5 col-sm-5 col-md-5 col-lg-4">
@@ -15,18 +17,28 @@
 				{{else }}
 				<img class="img-responsive" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNuB6NGtWBN7Dx2Z6rI7fn2h7aiTPvBfIDGjy6OrvGSkv0TXJp" style="height: 75px; width=75px;">
 				{{/if }}
+
 			</div>
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-7 destination-item">
+			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 clear">
+			</div>
+			<div class="col-xs-5 col-sm-5 col-md-5 col-lg-6  clear">
 				<span>{{this.name}}</span>
 				<p>{{ this.section }}</p>
 				<p>{{ this.contact.address }}</p>
 				<p>{{ this.contact.phone }}</p>
 			</div>
+
 			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-				<input type="checkbox">
+				{{#if destinationInItinerary this }}
+					<input type="checkbox" checked>
+				{{else}}
+					<input type="checkbox">
+				{{/if}}
 			</div>
 		</div>
 	</div>
+	{{/isolate}}
 {{/each}}
+{{/isolate}}
 
 </template>
