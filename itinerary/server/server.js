@@ -36,15 +36,16 @@ var saveFourSquareVenuesData = function(offset, city) {
 Meteor.methods({
   updateDestinationsData: function () {
     Destinations.remove({});
-    _.each(["Abu Dhabi", "Dubai"], function(city) {
-      saveFourSquareVenuesData(0, city);
-    });
+    // _.each(["Abu Dhabi", "Dubai"], function(city) {
+    //   saveFourSquareVenuesData(0, city);
+    // });
 
     var venues_str = Assets.getText("result_all.json");
-    console.log(venues_str);
     var venues_json = JSON.parse(venues_str);
     _.each(venues_json, function(venue) {
-      Destinations.insert(venue);
+      if ((venue.section === "outdoors" && venue.checkincount > 2000) || venue.section === "sights" || venue.checkincount > 4000) {
+        Destinations.insert(venue);
+      }
     });
 
     console.log('done');
