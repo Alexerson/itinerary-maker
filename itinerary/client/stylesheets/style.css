@@ -59,3 +59,11 @@
 	padding: 0 !important;
 	margin: 0 !important;
 }
+
+/* Localli header */
+.product-img{
+	margin-top: 100px;
+}
+.theme-img{
+	margin-top: 50px;
+}
