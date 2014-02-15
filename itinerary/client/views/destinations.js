@@ -1,4 +1,5 @@
 Template.destinations.events({
+
 	"change input[type=checkbox]" : function(event, template) {
 		var checked = event.target.checked;
 		var currentItineraryID = Session.get("currentItineraryID");
@@ -107,3 +108,4 @@ Template.destinations.events({
 		}
 	}
 });
+
