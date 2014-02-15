@@ -1,11 +1,12 @@
 <template name="destinations">
+
 	<button type="button" class="btn btn-info btn-lg generate-btn">Generate Route</button>
 	<div class="btn-group sort-by">
 	  <button type="button" class="btn btn-default btn-xs">Sort by XX</button>
 	  <button type="button" class="btn btn-default btn-xs">Sort by XX</button>
 	  <button type="button" class="btn btn-default btn-xs">Sort by XX</button>
 	</div>
-{{#each this}}
+{{#each this.destinations}}
 	<div class="panel panel-default destination">
 		<div class="panel-body thin">
 			<div class="col-xs-5 col-sm-5 col-md-5 col-lg-4">

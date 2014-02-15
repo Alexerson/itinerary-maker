@@ -32,9 +32,13 @@ Router.map(function () {
   });
 
   this.route('planner', {
-    path: '/planner/:name',
+    path: '/planner/:city',
     data: function() {
-      return Destinations.find({city: this.params.name});
+      var destinations = Destinations.find({city: this.params.city});
+      var result = {};
+      result.destinations = destinations;
+      result.city = this.params.city;
+      return result;
     },
     template: 'planner'
   });
