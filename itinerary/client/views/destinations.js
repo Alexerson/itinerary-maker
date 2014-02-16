@@ -310,28 +310,46 @@ Template.destinations.events({
     },
 
 	"change input[type=checkbox]" : function(event, template) {
+
+    _this = this;
+
 		var checked = event.target.checked;
 		var currentItineraryID = Session.get("currentItineraryID");
 
 		if (checked) {
+      console.log("checked");
 			Itineraries.update(currentItineraryID, {
 				$push : {
 					destinations : this
 				}
 			});
 
-			var myLatlng = new google.maps.LatLng(this.lat, this.lng);
-			var mapOptions = {
-				zoom : 15,
-				center : myLatlng
-			};
-			var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+      var setMapOptions = function() {
+        console.log("setMapOptions");
+        var myLatlng = new google.maps.LatLng(_this.lat, _this.lng);
 
-			var marker = new google.maps.Marker({
-				position : myLatlng,
-				map : map,
-				title : 'Hello World!'
-			});
+        console.log(_this.lat, _this.lng);
+
+        var mapOptions = {
+          zoom : 15,
+          center : myLatlng
+        };
+
+        var marker = new google.maps.Marker({
+          position : myLatlng,
+          map : map,
+          title : this.name
+        });
+
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+      };
+
+      var directionsDisplay = new google.maps.DirectionsRenderer();
+      directionsDisplay.setMap(map);
+
+
+      google.maps.event.addDomListener(window, 'load', setMapOptions);
 
 		} else {
 			Itineraries.update(currentItineraryID, {
@@ -344,21 +362,21 @@ Template.destinations.events({
 	},
 	'click #btn-generate' : function(event, template) {
 		var data = Itineraries.findOne(Session.get("currentItineraryID"));
-    var destinations = PlanPath(data.destinations);
+    var route = PlanPath(data.destinations);
+    Itineraries.update(Session.get("currentItineraryID"), {$set : {route: route}});
 
-		if (destinations.length >= 2) {
+		if (route.length >= 2) {
 			var directionsDisplay = new google.maps.DirectionsRenderer();
 			var directionsService = new google.maps.DirectionsService();
-			var map;
 
-			var start = new google.maps.LatLng(destinations[0].lat, destinations[0].lng);
-			var pos = destinations.length - 1;
-			var end = new google.maps.LatLng(destinations[pos].lat, destinations[pos].lng);
+			var start = new google.maps.LatLng(route[0].lat, route[0].lng);
+			var pos = route.length - 1;
+			var end = new google.maps.LatLng(route[pos].lat, route[pos].lng);
 
 			var points = [];
 
-			for ( i = 1; i < destinations.length - 1; i++) {
-				var dest = new google.maps.LatLng(destinations[i].lat, destinations[i].lng);
+			for ( i = 1; i < route.length - 1; i++) {
+				var dest = new google.maps.LatLng(route[i].lat, route[i].lng);
 				points.push({
 					location : dest
 				});
@@ -369,7 +387,7 @@ Template.destinations.events({
 					zoom : 15,
 					center : start,
 				};
-				map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+				var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 				directionsDisplay.setMap(map);
 
 			};
@@ -401,8 +419,8 @@ Template.destinations.events({
 					}
 				});
 			};
+      calcRoute();
 			initialize();
-			calcRoute();
 
 			google.maps.event.addDomListener(window, 'load', initialize);
 		} else {
@@ -433,11 +451,9 @@ Template.destinations.helpers({
 
       var searchText = Session.get("searchText");
       if (!searchText || searchText.length < 3) {
-        console.log(Destinations.find());
         return Destinations.find({city: city}, {sort: {section: -1}});
       }
       var regex = new RegExp(searchText, "i");
-      console.log(regex);
       return Destinations.find({name: regex, city: city}, {sort:{section: -1}});
-    },
+    }
 });
