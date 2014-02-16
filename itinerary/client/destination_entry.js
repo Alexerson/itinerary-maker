@@ -1,17 +1,21 @@
 Template.destination_entry.events({
-    "click button": function() {
-    	var name = $("#Name");
-    	var contact = $("#Contact");
-    	var address = $("#Address");
-        var city = $("#City");
-        var description = $("#Description");
+    "click #submit": function(event, template) {
+    	var name = template.find("#Name").value;
+    	console.log(name);
+    	var contact = template.find("#Contact").value;
+    	console.log(contact);
+    	var address = template.find("#Address").value;
+    	console.log(address);
+        var city = template.find("#City").value;
+        console.log(city);
+        var section = template.find("#Section").value;
+        console.log(section);
         
-        
-        Test.insert({
-                name: name.val(), 
-                contact: contact.val(),
-                address: address.val(),
-                city: city.val(),
+      	Destinations.insert({
+                name: name, 
+                phone: contact,
+                address: address,
+                city: city,
                 lat:"",
                 lng:"",
                 checkincount:"",
@@ -20,16 +24,12 @@ Template.destination_entry.events({
                 likescount:"",
                 rating:"",
                 duration:"",
-                localscore: description.val(),
-                section:"",
-                source:"local"});      
-        
+                localscore:"",
+                section:section,
+                source:"local",
+                foursquare_id:"local",
+                photo:""
+                });      
+      console.log(Destinations);  
       }
-
-});
-
- 'click input.save' : function() {            
-        var title = $("#prayer_title");
-        var prayer = $("#prayer");
-        var preview_container = $("#prayer_preview");
-        var currentUser = Meteor.userId();
+	});

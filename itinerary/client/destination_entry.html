@@ -1,42 +1,139 @@
 <template name="destination_entry">
-	<br>
-	<br>
-	<body>
-		<div class="container">
-			<h1>TEST</h1>
-			<form name="input" action="" method="post" align="center">
-				<label for="Name"  >Name   :</label>
-				<input id = "Name" type="text" name="Name"/>
-				<br/>
-				<label for"Contact">Contact:</label>
-				<input id = "Contact" type="text" name="Contact"/>
-				<br/>
-				<label for="Address">Address:</label>
-				<input id = "Address" type="text" name="Address">
-				<br/>
-				<label for="City">City   :</label>
-				<input id = "City" type="text" name="City">
-				<br/>
-				<label>Section: </label>
-				<select id="Section">
-					<option value="sights">sights</option>
-					<option value="shops">shops</option>
-					<option value="arts" selected>arts</option>
-					<option value="food">food</option>
-					<option value="drinks">drinks</option>
-					<option value="coffee">coffee</option>
-					<option value="outdoor" selected>outdoor</option>
-					<option value="trending">trending</option>
-					<option value="specials">specials</option>
-				</select>
-				<br/><br/>
-				<label>Description</label><br/>
-				<textarea id= "Description" name="Description" rows="4" cols="50">
-			    </textarea>
-			    <br/>
-				<br/>
-				<br/>
-				<input type="submit" value="Submit">
-			</form>
+	
+<div style="background: url(/img/new.jpg) no-repeat center center; width:100% ;height:100%; padding:160px; background-size:cover;">
+<div style="background-color: rgba(0,0,0,0.7); width:300px; padding-bottom:20px; margin:0px auto; border-radius:10px;">
+		<form action="" method="post" align="center">
+		<fieldset>
 
+				<!-- Form Name -->
+
+				<legend style="color:#FFFFFF;">
+					New local business
+				</legend>
+
+				<!-- Text input-->
+				<div class="control-group">
+					<label style="font-family: sans-serif;
+	font-size: 14px;
+	color: #FFFFFF;" for="Name">Name</label>
+					<div class="controls">
+						<input id="Name" name="Name" type="text" placeholder="" style="border:0;
+    height: 28px;
+    padding-left:10px;
+    width: 191px;
+    box-shadow: 0px 0px 0 #ffffff;
+    opacity: 0.85;
+    border-radius: 5px;">
+
+					</div>
+				</div>
+
+				<!-- Text input-->
+				<div class="control-group">
+					<label style="font-family: sans-serif;
+	font-size: 14px;
+	color: #FFFFFF;" for="Contact">Contact</label>
+					<div class="controls">
+						<input id="Contact" name="Contact" type="text" placeholder="" style="
+    border:0;
+    
+    height: 28px;
+    padding-left:10px;
+    width: 191px;
+    box-shadow: 0px 0px 0 #ffffff;
+    opacity: 0.85;
+    border-radius: 5px;">
+
+					</div>
+				</div>
+
+				<!-- Text input-->
+				<div class="control-group">
+					<label style="font-family: sans-serif;
+	font-size: 14px;
+	color: #FFFFFF;" for="Address">Address</label>
+					<div class="controls">
+						<input id="Address" name="Address" type="text" placeholder="" style="
+    border:0;
+   
+    height: 28px;
+    padding-left:10px;
+    width: 191px;
+    box-shadow: 0px 0px 0 #ffffff;
+    opacity: 0.85;
+    border-radius: 5px;">
+
+					</div>
+				</div>
+
+				<!-- Text input-->
+				<div class="control-group">
+					<label style="font-family: sans-serif;
+	font-size: 14px;
+	color: #FFFFFF;" for="City">City</label>
+					<div class="controls">
+						<input id="City" name="City" type="text" placeholder="" style="
+    border:0;
+    
+    height: 28px;
+    padding-left:10px;
+    width: 191px;
+    box-shadow: 0px 0px 0 #ffffff;
+    opacity: 0.85;
+    border-radius: 5px;">
+
+					</div>
+				</div>
+
+				<!-- Select Basic -->
+				<div class="control-group">
+					<label style="font-family: sans-serif;
+	font-size: 14px;
+	color: #FFFFFF;" for="Section">Section</label>
+					<div class="controls">
+						<select id="Section" name="Section" style="
+    border:0;
+    
+    height: 28px;
+    padding-left:10px;
+    width: 100px;
+    box-shadow: 0px 0px 0 #ffffff;
+    opacity: 0.85;
+    border-radius: 5px;">
+							<option>arts</option>
+							<option>coffee</option>
+							<option>drinks</option>
+							<option>food</option>
+							<option>outdoor</option>
+							<option>shops</option>
+							<option>sights</option>
+							<option>specials</option>
+							<option>trending</option>
+						</select>
+					</div>
+				</div>
+				<!-- Button -->
+				<div class="control-group">
+					<label class="control-label" for="submit"></label>
+					<div class="controls">
+						<button id="submit" name="submit" style="background-color: #FFFFFF;
+   
+    color: black;
+    padding-left:10px;
+    box-shadow: 1px 1px 0 #ffffff;
+    width: 75px;
+    height: 30px;
+    border: 0;
+    border-radius:5px;
+    font-family: Sansation,Arial;
+    vertical-align: center;">
+							submit
+						</button>
+					</div>
+				</div>
+
+			</fieldset>
+		</form>
+</div>
+</div>
 </template>
