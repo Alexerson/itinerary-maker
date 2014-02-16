@@ -44,7 +44,9 @@ Meteor.methods({
     var venues_json = JSON.parse(venues_str);
     _.each(venues_json, function(venue) {
       if ((venue.section === "outdoors" && venue.checkincount > 2000) || venue.section === "sights" || venue.checkincount > 4000) {
-        Destinations.insert(venue);
+        if (! Destinations.findOne({foursquare_id: venue.foursquare_id})) {
+          Destinations.insert(venue);
+        }
       }
     });
 

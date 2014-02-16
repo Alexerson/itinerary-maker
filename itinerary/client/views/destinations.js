@@ -122,12 +122,16 @@ Template.destinations.helpers({
     }
   },
   filteredDestinations: function () {
+      var itinerary = Itineraries.findOne(Session.get("currentItineraryID"));
+      var city = itinerary.city;
+
       var searchText = Session.get("searchText");
       if (!searchText || searchText.length < 3) {
-        return Destinations.find();
+        console.log(Destinations.find());
+        return Destinations.find({city: city}, {sort: {section: -1}});
       }
       var regex = new RegExp(searchText, "i");
       console.log(regex);
-      return Destinations.find({name: regex});
+      return Destinations.find({name: regex, city: city}, {sort:{section: -1}});
     },
 });
