@@ -423,7 +423,6 @@ Template.destinations.events({
       calcRoute();
 			initialize();
 
-			google.maps.event.addDomListener(window, 'load', initialize);
 		} else {
 			alert("Please select at least two destinations!");
 		}
