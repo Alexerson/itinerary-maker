@@ -39,6 +39,26 @@ Router.map(function () {
       result.itinerary = itinerary;
       return result;
     },
+
+    load: function() {
+      var _this = this;
+      HTTP.call("GET", 'http://maps.googleapis.com/maps/api/geocode/json?',
+        {
+          params: {
+            address: _this.params.city,
+            sensor:true
+          }
+        },
+        function(error, response){
+          Session.set("mapLat", response.data.results[0].geometry.location.lat);
+          Session.set("mapLng", response.data.results[0].geometry.location.lng);
+          Session.set("mapLoc", _this.params.city);
+
+
+          
+        }
+      );
+    },
     template: 'planner'
   });
 

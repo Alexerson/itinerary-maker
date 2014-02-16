@@ -310,27 +310,20 @@ Template.destinations.events({
     },
 
 	"change input[type=checkbox]" : function(event, template) {
+    var _this = this;
 		var checked = event.target.checked;
 		var currentItineraryID = Session.get("currentItineraryID");
 
 		if (checked) {
+
+      Session.set("mapLat", this.lat);
+      Session.set("mapLng", this.lng);
+      Session.set("mapLoc", this.name);
+      
 			Itineraries.update(currentItineraryID, {
 				$push : {
 					destinations : this
 				}
-			});
-
-			var myLatlng = new google.maps.LatLng(this.lat, this.lng);
-			var mapOptions = {
-				zoom : 15,
-				center : myLatlng
-			};
-			var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-			var marker = new google.maps.Marker({
-				position : myLatlng,
-				map : map,
-				title : 'Hello World!'
 			});
 
 		} else {
