@@ -310,14 +310,15 @@ Template.destinations.events({
     },
 
 	"change input[type=checkbox]" : function(event, template) {
-
-    _this = this;
-
+    var _this = this;
 		var checked = event.target.checked;
 		var currentItineraryID = Session.get("currentItineraryID");
 
 		if (checked) {
-      console.log("checked");
+      Session.set("mapLat", this.lat);
+      Session.set("mapLng", this.lng);
+      Session.set("mapLoc", this.name);
+      
 			Itineraries.update(currentItineraryID, {
 				$push : {
 					destinations : this
@@ -408,7 +409,7 @@ Template.destinations.events({
 					}
 					hours = Math.floor(total / 3600.0);
 					mins = Math.round(total / 60.0 - hours * 60);
-					console.log(hours + " hours " + mins + " mins");
+          Itineraries.update(Session.get("currentItineraryID"), {$set : {routeTime: total/3600}});
 				}
 
 
@@ -422,7 +423,6 @@ Template.destinations.events({
       calcRoute();
 			initialize();
 
-			google.maps.event.addDomListener(window, 'load', initialize);
 		} else {
 			alert("Please select at least two destinations!");
 		}
@@ -451,9 +451,9 @@ Template.destinations.helpers({
 
       var searchText = Session.get("searchText");
       if (!searchText || searchText.length < 3) {
-        return Destinations.find({city: city}, {sort: {section: -1}});
+        return Destinations.find({city: city}, {sort: {checkincount: -1}});
       }
       var regex = new RegExp(searchText, "i");
-      return Destinations.find({name: regex, city: city}, {sort:{section: -1}});
+      return Destinations.find({name: regex, city: city}, {sort:{checkincount: -1}});
     }
 });
