@@ -409,7 +409,7 @@ Template.destinations.events({
 					}
 					hours = Math.floor(total / 3600.0);
 					mins = Math.round(total / 60.0 - hours * 60);
-					console.log(hours + " hours " + mins + " mins");
+          Itineraries.update(Session.get("currentItineraryID"), {$set : {routeTime: total/3600}});
 				}
 
 
