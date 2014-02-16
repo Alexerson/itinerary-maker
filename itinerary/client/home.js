@@ -14,7 +14,7 @@ Template.home.events({
             Session.set("mapLoc", city);
           }
         );
-        Itineraries.insert({user: Meteor.user(), city: city, destinations: []}, function(error, id) {
+        Itineraries.insert({user: Meteor.user(), routeTime: 0, city: city, destinations: []}, function(error, id) {
           Session.set("currentItineraryID", id);
           Router.go('/planner/' + city + '/' + Session.get("currentItineraryID"));
         });

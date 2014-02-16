@@ -451,9 +451,9 @@ Template.destinations.helpers({
 
       var searchText = Session.get("searchText");
       if (!searchText || searchText.length < 3) {
-        return Destinations.find({city: city}, {sort: {section: -1}});
+        return Destinations.find({city: city}, {sort: {checkincount: -1}});
       }
       var regex = new RegExp(searchText, "i");
-      return Destinations.find({name: regex, city: city}, {sort:{section: -1}});
+      return Destinations.find({name: regex, city: city}, {sort:{checkincount: -1}});
     }
 });

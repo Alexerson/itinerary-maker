@@ -12,12 +12,12 @@ Template.planner.helpers({
     var totalTime = 0;
     var itinerary = Itineraries.findOne(Session.get("currentItineraryID"));
     totalTime += itinerary.routeTime;
-    console.log("routtime", totalTime);
     _.each(itinerary.destinations, function(destination){
       totalTime += parseInt(destination.duration);
-      console.log("dest time", destination.duration);
     });
-    console.log(totalTime);
+    if (totalTime <= 0) {
+      return 0;
+    }
     return totalTime.toFixed(1);
   }
 });

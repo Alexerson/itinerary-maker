@@ -27,7 +27,7 @@ Router.map(function () {
       if (this.params.itineraryID && Itineraries.findOne(this.params.itineraryID)) {
         Session.set("currentItineraryID", this.params.itineraryID);
       } else {
-        Itineraries.insert({user: Meteor.user(), city: this.params.city, destinations: []}, function(error, id) {
+        Itineraries.insert({user: Meteor.user(), routeTime: 0, city: this.params.city, destinations: []}, function(error, id) {
           Session.set("currentItineraryID", id);
         });
       }
@@ -53,9 +53,6 @@ Router.map(function () {
           Session.set("mapLat", response.data.results[0].geometry.location.lat);
           Session.set("mapLng", response.data.results[0].geometry.location.lng);
           Session.set("mapLoc", _this.params.city);
-
-
-          
         }
       );
     },
